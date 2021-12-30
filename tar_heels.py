@@ -8,14 +8,25 @@ __author__ = "haleygs@email.unc.edu"
     # When evenly divisible by both 2 and 7, print "TAR HEELS"
     # When none of the conditions are met, print "CAROLINA"
 
-input_value: int = int(input("Enter an int: "))
-if input_value % 2 == 0 and input_value % 7 == 0:
-    print("TAR HEELS")
-else:
-    if input_value % 2 == 0:
-        print("TAR")
+def main() -> None:
+    """The entrypoint of the program, when run as a module."""
+    choice: int = int(input("Enter an int: "))
+    print(tar_heels(choice))
+
+
+def tar_heels(some_int: int) -> str:
+    """Returns an str statement, depending on which conditions are met."""
+    if some_int % 2 == 0 and some_int % 7 == 0:
+        return "TAR HEELS"
     else:
-        if input_value % 7 == 0:
-            print("HEELS")
+        if some_int % 2 == 0:
+            return "TAR"
         else:
-            print("CAROLINA")
+            if some_int % 7 == 0:
+                return "HEELS"
+            else:
+                return "CAROLINA"
+
+
+if __name__ == "__main__":
+    main()
